@@ -1,0 +1,40 @@
+* Problem 6
+
+** understanding
+**** manhattan distance
+
+/Manhattan distance/, between two coordinates, simply can be defined as the sum of absolute differences
+between the cartesian coordinates.
+	#+BEGIN_SRC latex :exports result
+	\begin{equation}
+	L_1 = \mid A_x - B_x \mid + \mid A_y - B_y \mid
+	\end{equation}
+	#+END_SRC
+
+	#+RESULTS:
+	#+BEGIN_LATEX
+	\begin{equation}
+	L_1 = \mid A_x - B_x \mid + \mid A_y - B_y \mid
+	\end{equation}
+	#+END_LATEX
+
+we need to find the manhattan distance of all the coordinates
+compare with given input values, find the smallest distance
+which makes the point closest to the given input point
+	
+#+BEGIN_SRC python :results output list
+def read_file_from_input(filename):
+    with open(filename) as f:
+        for line in f:
+            yield line
+
+
+def manhattan_distance(point_1, point_2):
+    return abs(point_1[0] - point_2[0]) + abs(point_1[1] - point_2[1])
+
+
+def get_data(filename):
+    lines = []
+    for line in read_file_from_input(filename):
+        lines.append(line)
+#+END_SRC
